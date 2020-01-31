@@ -15,7 +15,7 @@ public class Socket : MonoBehaviour {
     private int memberNumber;
     public InputField id;
 
-    private string position => $"{{\"x\":{transform.position.x},\"y\":{transform.position.y}}}";
+    private string position => $"{{\"x\":\"{transform.position.x}\",\"y\":\"{transform.position.y}\"}}";
     // Start is called before the first frame update
     async void Start () {
         // config the member number of a game
