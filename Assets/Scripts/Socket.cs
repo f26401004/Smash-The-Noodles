@@ -34,10 +34,10 @@ public class Socket : MonoBehaviour {
         };
         await this.socket.ConnectAsync (this.session);
 
-        // // create match id
-        // var match = await this.socket.CreateMatchAsync ();
-        // this.matchId = match.Id;
-        // Debug.LogFormat ("New match with id {0}", this.matchId);
+        // create match id
+        var match = await this.socket.CreateMatchAsync ();
+        this.matchId = match.Id;
+        Debug.LogFormat ("New match with id {0}", this.matchId);
 
         // test send message
         await this.JoinMatch ();
