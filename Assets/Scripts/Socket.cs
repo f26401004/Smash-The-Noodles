@@ -69,7 +69,7 @@ public class Socket : MonoBehaviour {
 
     public async void JoinMatch () {
         var matchId = id.text;
-        if (matchId.length == 0) {
+        if (matchId.Length == 0) {
             return;
         }
         var match = await socket.JoinMatchAsync (matchId);
