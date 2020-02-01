@@ -21,7 +21,9 @@ public class Socket : MonoBehaviour {
     private bool isConnected = false;
     public bool isLeader = false;
 	// Set of all items.
-    private Dictionary<string, GameObject> itemSet = new Dictionary<string, GameObject>();
+    private Dictionary<string, Item> itemSet = new Dictionary<string, Item>();
+
+	// Item Prefab
 
     private string position => $"{{\"x\":\"{transform.position.x}\",\"y\":\"{transform.position.y}\"}}";
     // Start is called before the first frame update

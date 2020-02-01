@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
     public string key;
 	public enum ItemType
 	{
-		Pizza, Suasage, Noodles, Glue, Paint
+		Pizza, Suasage, Noodles, Glue, Paint, Weapon
 	}
 
 	public ItemType type;
