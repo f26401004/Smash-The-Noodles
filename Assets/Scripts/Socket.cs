@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LitJson;
+using LitJson;
 using Nakama;
 using UnityEngine;
 using UnityEngine.UI;
-using LitJson;
-using System;
 
 public class Socket : MonoBehaviour {
     private ConcurrentQueue<IMatchState> states = new ConcurrentQueue<IMatchState> ();
@@ -17,11 +18,11 @@ public class Socket : MonoBehaviour {
     private int memberNumber;
     public InputField id;
     public EnemyMovement enemyPrefab;
-    public Dictionary<string, EnemyMovement> enemies = new Dictionary<string, EnemyMovement>();
+    public Dictionary<string, EnemyMovement> enemies = new Dictionary<string, EnemyMovement> ();
     private bool isConnected = false;
     public bool isLeader = false;
-	// Set of all items.
-    private Dictionary<string, Item> itemSet = new Dictionary<string, Item>();
+    // Set of all items.
+    private Dictionary<string, Item> itemSet = new Dictionary<string, Item> ();
 
     // Item Prefabs
     public Item Pizza;
@@ -53,7 +54,7 @@ public class Socket : MonoBehaviour {
             var enc = System.Text.Encoding.UTF8;
             var content = enc.GetString (newState.State);
             Debug.LogFormat ("Received: {0}, {1}", newState.OpCode, content);
-            states.Enqueue(newState);
+            states.Enqueue (newState);
         };
         await this.socket.ConnectAsync (this.session);
 
@@ -63,35 +64,31 @@ public class Socket : MonoBehaviour {
     }
 
     private void Update () {
-		if (isConnected)
-		{
-            this.sendMessage(1, position);	
+        if (isConnected) {
+            this.sendMessage (1, position);
         }
-        
+
         while (states.TryDequeue (out var state)) {
             var payload = System.Text.Encoding.UTF8.GetString (state.State);
             Debug.Log ($"{state.OpCode}, {payload}");
 
             string enemyId = state.UserPresence.UserId;
-            if (!enemies.ContainsKey(enemyId))
-            {
-                var newEnemy = Instantiate(enemyPrefab);
-                enemies.Add(enemyId, newEnemy);
+            if (!enemies.ContainsKey (enemyId)) {
+                var newEnemy = Instantiate (enemyPrefab);
+                enemies.Add (enemyId, newEnemy);
             }
 
-            JsonData decoded = JsonMapper.ToObject(payload);
+            JsonData decoded = JsonMapper.ToObject (payload);
 
-			// Move
-            if (state.OpCode == 1)
-			{
-                float x = float.Parse(decoded["x"].ToString());
-                float y = float.Parse(decoded["y"].ToString());
-                enemies[enemyId].WalkTo(new Vector3(x, y));
-			}
+            // Move
+            if (state.OpCode == 1) {
+                float x = float.Parse (decoded["x"].ToString ());
+                float y = float.Parse (decoded["y"].ToString ());
+                enemies[enemyId].WalkTo (new Vector3 (x, y));
+            }
             // Pick. 只有一般玩家需要處理這個訊息
             // id: item_id
-            else if (state.OpCode == 2 && !isLeader)
-			{
+            else if (state.OpCode == 2 && !isLeader) {
                 // TODO: Make someonee pipck up something
                 Item itemPicked = itemSet[decoded["id"].ToString()];
                 itemSet.Remove(decoded["id"].ToString());
@@ -104,16 +101,15 @@ public class Socket : MonoBehaviour {
 				{
 
 				}
+
             }
             // Trypick. 只有房主需要處理這個訊息
             // id: item_id
-            else if (state.OpCode == 3 && isLeader)
-			{
-				// When Trypick, leader deterimnes whether item is present
-				if (itemSet.ContainsKey(decoded["id"].ToString()))
-                {
+            else if (state.OpCode == 3 && isLeader) {
+                // When Trypick, leader deterimnes whether item is present
+                if (itemSet.ContainsKey (decoded["id"].ToString ())) {
                     // Send actual pick
-                    socket.SendMatchStateAsync(matchId, 2, $"{{\"picker\":\"{state.UserPresence.UserId}\",\"item\":{decoded["id"].ToString()}}}");
+                    socket.SendMatchStateAsync (matchId, 2, $"{{\"picker\":\"{state.UserPresence.UserId}\",\"item\":{decoded["id"].ToString()}}}");
                     // TODO: Make someonee pipck up something
                     Item itemPicked = itemSet[decoded["id"].ToString()];
                     itemSet.Remove(decoded["id"].ToString());
