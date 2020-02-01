@@ -36,8 +36,26 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     public void Jump () {
-        Vector2 dir = Vector2.up;
-        rb.velocity = new Vector2 (rb.velocity.x, 0);
-        rb.velocity += dir * jumpForce;
+        var hits = Physics2D.RaycastAll(transform.position + Vector3.up * 0.24f, Vector3.down, 0.4f);
+        bool wasHit = false;
+        foreach (var hit in hits)
+        {
+            if (hit.collider.gameObject == gameObject || hit.collider.gameObject.layer == 8 || hit.collider.GetComponent<Item>())
+            {
+                continue;
+            }
+
+            if (hit.collider != null)
+            {
+                wasHit = true;
+                break;
+            }
+        }
+        if (wasHit)
+        {
+            Vector2 dir = Vector2.up;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.velocity += dir * jumpForce;
+        }
     }
 }
