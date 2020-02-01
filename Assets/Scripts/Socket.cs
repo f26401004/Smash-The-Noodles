@@ -24,7 +24,8 @@ public class Socket : MonoBehaviour {
     // Set of all items.
     private Dictionary<string, Item> itemSet = new Dictionary<string, Item> ();
 
-    // Item Prefab
+    // Item Prefabs
+    public Item Pizza;
 
     private string position => $"{{\"x\":\"{transform.position.x}\",\"y\":\"{transform.position.y}\"}}";
     // Start is called before the first frame update
@@ -89,7 +90,18 @@ public class Socket : MonoBehaviour {
             // id: item_id
             else if (state.OpCode == 2 && !isLeader) {
                 // TODO: Make someonee pipck up something
-                itemSet.Remove (decoded["id"].ToString ());
+                Item itemPicked = itemSet[decoded["id"].ToString()];
+                itemSet.Remove(decoded["id"].ToString());
+
+				if (enemies.ContainsKey(state.UserPresence.UserId))
+				{
+
+				}
+				else
+				{
+
+				}
+
             }
             // Trypick. 只有房主需要處理這個訊息
             // id: item_id
@@ -99,16 +111,39 @@ public class Socket : MonoBehaviour {
                     // Send actual pick
                     socket.SendMatchStateAsync (matchId, 2, $"{{\"picker\":\"{state.UserPresence.UserId}\",\"item\":{decoded["id"].ToString()}}}");
                     // TODO: Make someonee pipck up something
-                    itemSet.Remove (decoded["id"].ToString ());
+                    Item itemPicked = itemSet[decoded["id"].ToString()];
+                    itemSet.Remove(decoded["id"].ToString());
+
+                    if (enemies.ContainsKey(state.UserPresence.UserId))
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
                 }
-            }
-            // 新物品，可能由房主生成，或者因為交換被放下
+			}
+            // 物品因為交換被放下
             // id: item_id, tag: item_type, position: position
-            else if (state.OpCode == 11) {
-                // TODO: 生成物品
+            else if (state.OpCode == 6)
+            {
+                // TODO: 加入 ITEM SET
             }
+            // 新物品，由房主生成
+            // id: item_id, tag: item_type, position: position
+            else if (state.OpCode == 11)
+			{
+				// TODO: 生成物品
+				//decoded[]
+			}
         }
     }
+
+	private void GenerateItem(string type, Vector3 position, string key)
+	{
+
+	}
 
     public async void CreateMatch () {
         var match = await socket.CreateMatchAsync ();
