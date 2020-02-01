@@ -11,18 +11,17 @@ public class PlayerAction : CharacterAction {
         this.hold.Use ();
     }
 
-	public void Update()
-	{
-		
-	}
+    public void Update () {
 
-	public void Drop () {
+    }
+
+    public void Drop () {
         if (hold == null) {
             return;
         }
 
         hold.gameObject.transform.parent = null;
-        hold.GetComponent<Collider2D>().enabled = true;
+        hold.GetComponent<Collider2D> ().enabled = true;
         hold.isHeld = false;
         hold = null;
         touch = null;
