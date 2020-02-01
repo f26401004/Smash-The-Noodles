@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Nakama;
 using UnityEngine;
+using System.Collections.Concurrent;
 
 public class Socket : MonoBehaviour {
+    private ConcurrentQueue<IMatchState> states = new ConcurrentQueue<IMatchState>();
     private ISession session;
     private string deviceId;
     private ISocket socket;
@@ -43,6 +45,15 @@ public class Socket : MonoBehaviour {
         await this.JoinMatch ();
     }
 
+	private void Update()
+	{
+		while (states.TryDequeue(out var state))
+		{
+            var payload = System.Text.Encoding.UTF8.GetString(state.State);
+            Debug.Log($"{state.OpCode}, {payload}");
+		}
+	}
+
     async Task JoinMatch () {
         var query = "*";
         var minCount = this.memberNumber;
@@ -62,15 +73,11 @@ public class Socket : MonoBehaviour {
             var enc = System.Text.Encoding.UTF8;
             var content = enc.GetString (newState.State);
             Debug.LogFormat ("Received: {0}, {1}", newState.OpCode, content);
+            states.Enqueue(newState);
         };
     }
 
     void sendMessage () {
         socket.SendMatchStateAsync (this.matchId, 1, "{\"hello\":\"world\"}");
-    }
-
-    // Update is called once per frame
-    void Update () {
-
     }
 }
