@@ -25,7 +25,15 @@ public class PlayerAction : CharacterAction {
         
     }
 
-    public void Drop () {
+	public void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.P) && touch)
+		{
+            TryPick(touch);
+		}
+	}
+
+	public void Drop () {
         if (hold == null) {
             return;
         }
