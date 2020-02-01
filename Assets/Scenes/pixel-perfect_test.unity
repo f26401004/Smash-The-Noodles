@@ -2489,6 +2489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460458226}
   - component: {fileID: 1460458228}
+  - component: {fileID: 1460458232}
   - component: {fileID: 1460458227}
   - component: {fileID: 1460458230}
   - component: {fileID: 1460458229}
@@ -2599,6 +2600,19 @@ MonoBehaviour:
     type: 3}
   isLeader: 0
   Pizza: {fileID: 7898964619239514293, guid: e5467005077c1405bab238ba289c9ed4, type: 3}
+--- !u!114 &1460458232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460458225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae641c66dbb97f949acf356ae4702db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 0}
 --- !u!1001 &1722180255
 PrefabInstance:
   m_ObjectHideFlags: 0
