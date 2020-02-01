@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class TitleScene : MonoBehaviour {
     // public GameObject startButton;
@@ -14,13 +14,18 @@ public class TitleScene : MonoBehaviour {
     public GameObject start;
     public GameObject exitAbout;
     public VideoPlayer video;
+
+    public GameObject aboutTab1;
+    public GameObject aboutTab2;
+    public GameObject tabRightButton;
+    public GameObject tabLeftButton;
     private int currentIndex;
     // Start is called before the first frame update
     void Start () {
         // startAnimator = startButton.GetComponent<Animator> ();
         // exitAnimator = exitButton.GetComponent<Animator> ();
         currentIndex = 0;
-        about.SetActive(false);
+        about.SetActive (false);
     }
 
     // Update is called once per frame
@@ -33,14 +38,28 @@ public class TitleScene : MonoBehaviour {
         }
     }
     public void openAboutCanvas () {
-        about.SetActive(true);
+        about.SetActive (true);
         EventSystem.current.SetSelectedGameObject (exitAbout);
-        video.Play();
+        video.Play ();
     }
     public void closeAboutCanvas () {
-        about.SetActive(false);
+        about.SetActive (false);
         EventSystem.current.SetSelectedGameObject (start);
-        video.Stop();
+        video.Stop ();
+    }
+
+    public void rightAboutTab () {
+        aboutTab1.active = false;
+        aboutTab2.active = true;
+        tabRightButton.active = false;
+        tabLeftButton.active = true;
+    }
+
+    public void leftAboutTab () {
+        aboutTab1.active = true;
+        aboutTab2.active = false;
+        tabRightButton.active = true;
+        tabLeftButton.active = false;
     }
 
     public void enterGame () {
