@@ -6,12 +6,15 @@ public class EnemyMovement : MonoBehaviour
 {
     public Animator anim;
 
+    private Vector3 targetPosition;
+
     void Start() {
         anim = GetComponentInChildren<Animator>();
     }
 
-    public void WalkTo(Vector3 pos){
-        float x = pos.x - transform.position.x;
+    void Update() {
+        Vector3 nextPosition = Vector3.lerp(transform.position, targetPosition, 0.5f);
+        float x = nextPosition.x - transform.position.x;
         anim.SetFloat("HorizontalAxis", Mathf.Abs(x));
 
         if(x > 0){
@@ -20,6 +23,11 @@ public class EnemyMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        transform.position = pos;
+        transform.position = nextPosition;
+    }
+
+    public void WalkTo(Vector3 pos){
+
+        targetPosition = pos;
     }
 }
