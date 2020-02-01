@@ -32,13 +32,17 @@ public class PlayerAction : CharacterAction {
 		{
             TryPick(touch);
 		}
+		if (Input.GetKeyDown(KeyCode.O) && hold)
+		{
+            Drop();
+		}
 	}
 
 	public void Drop () {
         if (hold == null) {
             return;
         }
-        // send drop message to room manager
+        // send drop message to everyone
         socket.sendMessage (6, payload (hold));
 
         hold.gameObject.transform.parent = null;
