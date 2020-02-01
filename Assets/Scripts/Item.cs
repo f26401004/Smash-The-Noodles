@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 	public bool isHeld = false;
-	private Vector2 velocity = Vector2.zero;
+	public Vector2 velocity = Vector2.zero;
 	public float acceleration = 10;
 
 	public const int Gap = 5;
@@ -31,11 +31,11 @@ public class Item : MonoBehaviour
 			if (gapCounter >= Gap)
 			{
 				gapCounter = 0;
-				var hits = Physics2D.RaycastAll(transform.position + Vector3.down * 0.4f, Vector2.down, velocity.y * Time.deltaTime);
+				var hits = Physics2D.RaycastAll(transform.position + (velocity.y >= 0 ? Vector3.down : Vector3.up) * 0.4f, (velocity.y >= 0 ? Vector3.down : Vector3.up), Mathf.Abs(velocity.y) * Time.deltaTime);
 				bool wasHit = false;
 				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject == gameObject)
+					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>())
 					{
 						continue;
 					}
@@ -60,7 +60,7 @@ public class Item : MonoBehaviour
 				wasHit = false;
 				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject == gameObject)
+					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>())
 					{
 						continue;
 					}

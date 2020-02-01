@@ -29,6 +29,9 @@ public class PlayerAction : CharacterAction {
 
 	public void Throw()
 	{
-
+        Item item = hold;
+        Drop();
+        item.velocity += (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) + 1) * Vector2.right * transform.localScale.x;
+        item.velocity -= Vector2.up * 8;
 	}
 }
