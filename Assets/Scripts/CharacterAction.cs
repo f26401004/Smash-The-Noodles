@@ -8,7 +8,7 @@ public class CharacterAction : MonoBehaviour {
     protected Item hold;
     protected Item touch;
 
-    public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"item\":\"{item.type.ToString()}\",\"key\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}";
+    public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"id\":\"{item.type.ToString()}\",\"key\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}";
 
 	public void Start()
 	{

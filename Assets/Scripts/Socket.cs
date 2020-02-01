@@ -68,7 +68,7 @@ public class Socket : MonoBehaviour {
 		{
             Item item = GenerateItem("Pizza", new Vector3(2.9f, -1.8f, 0), Guid.NewGuid().ToString());
             itemSet.Add(item.key, item);
-            sendMessage(11, $"{{\"x\":\"{ 2.9f }\",\"y\":\"{ -1.8f }\",\"item\":\"{ "Pizza" }\",\"key\":\"{item.key}\"}}");
+            sendMessage(11, $"{{\"x\":\"{ 2.9f }\",\"y\":\"{ -1.8f }\",\"item\":\"{ "Pizza" }\",\"id\":\"{item.key}\"}}");
 		}
         if (isConnected) {
             this.sendMessage (1, position);
@@ -140,7 +140,7 @@ public class Socket : MonoBehaviour {
                 // 加入 ITEM SET
                 string type = decoded["item"].ToString();
                 Vector3 position = new Vector3(float.Parse(decoded["x"].ToString()), float.Parse(decoded["y"].ToString()));
-                string key = decoded["key"].ToString();
+                string key = decoded["id"].ToString();
 				foreach(var item in FindObjectsOfType<Item>())
 				{
 					if (item.key == key)
@@ -163,7 +163,7 @@ public class Socket : MonoBehaviour {
 				// 生成物品，並加入 itemset
                 string type = decoded["item"].ToString();
                 Vector3 position = new Vector3(float.Parse(decoded["x"].ToString()), float.Parse(decoded["y"].ToString()));
-                string key = decoded["key"].ToString();
+                string key = decoded["id"].ToString();
                 Item item = GenerateItem(type, position, key);
                 itemSet.Add(key, item);
             }
