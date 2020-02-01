@@ -6,6 +6,7 @@ using Nakama;
 using UnityEngine;
 using UnityEngine.UI;
 using LitJson;
+using System;
 
 public class Socket : MonoBehaviour {
     private ConcurrentQueue<IMatchState> states = new ConcurrentQueue<IMatchState> ();
@@ -18,6 +19,9 @@ public class Socket : MonoBehaviour {
     public EnemyMovement enemyPrefab;
     public Dictionary<string, EnemyMovement> enemies = new Dictionary<string, EnemyMovement>();
     private bool isConnected = false;
+    public bool isLeader = false;
+	// Set of all items.
+    private Dictionary<string, GameObject> itemSet = new Dictionary<string, GameObject>();
 
     private string position => $"{{\"x\":\"{transform.position.x}\",\"y\":\"{transform.position.y}\"}}";
     // Start is called before the first frame update
@@ -74,11 +78,38 @@ public class Socket : MonoBehaviour {
 
             JsonData decoded = JsonMapper.ToObject(payload);
 
+			// Move
             if (state.OpCode == 1)
 			{
                 float x = float.Parse(decoded["x"].ToString());
                 float y = float.Parse(decoded["y"].ToString());
                 enemies[enemyId].WalkTo(new Vector3(x, y));
+			}
+            // Pick. 只有一般玩家需要處理這個訊息
+            // id: item_id
+            else if (state.OpCode == 2 && !isLeader)
+			{
+                // TODO: Make someonee pipck up something
+                itemSet.Remove(decoded["id"].ToString());
+            }
+            // Trypick. 只有房主需要處理這個訊息
+            // id: item_id
+            else if (state.OpCode == 3 && isLeader)
+			{
+				// When Trypick, leader deterimnes whether item is present
+				if (itemSet.ContainsKey(decoded["id"].ToString()))
+                {
+                    // Send actual pick
+                    socket.SendMatchStateAsync(matchId, 2, $"{{\"picker\":\"{state.UserPresence.UserId}\",\"item\":{decoded["id"].ToString()}}}");
+                    // TODO: Make someonee pipck up something
+                    itemSet.Remove(decoded["id"].ToString());
+				}
+			}
+			// 新物品，可能由房主生成，或者因為交換被放下
+			// id: item_id, tag: item_type, position: position
+			else if (state.OpCode == 11)
+			{
+				// TODO: 生成物品
 			}
         }
     }
@@ -92,6 +123,7 @@ public class Socket : MonoBehaviour {
         // send current position to opponent
         this.sendMessage (1, position);
         isConnected = true;
+        isLeader = true;
     }
 
     public async void JoinMatch () {
