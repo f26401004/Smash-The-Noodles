@@ -62,6 +62,10 @@ public class Item : MonoBehaviour
 
 			transform.Translate(0, -velocity * Time.deltaTime, 0);
 		}
+		else
+		{
+			transform.localPosition = Vector3.zero;
+		}
 	}
 		
 }
