@@ -25,7 +25,7 @@ public class Socket : MonoBehaviour {
         // config the member number of a game
         this.memberNumber = 2;
 
-        var client = new Client ("http", "192.168.1.178", 80, "defaultkey");
+        var client = new Client ("http", "140.114.77.40", 7350, "defaultkey");
         // get the current device id
         this.deviceId = PlayerPrefs.GetString ("nakama.deviceid");
         if (string.IsNullOrEmpty (this.deviceId)) {
