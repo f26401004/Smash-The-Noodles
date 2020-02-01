@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour {
     private int currentIndex;
@@ -19,11 +20,6 @@ public class EndScene : MonoBehaviour {
         if (Input.GetKeyDown (KeyCode.DownArrow)) {
             currentIndex = (currentIndex + 1) % 2;
         }
-    }
-
-    // Update is called once per frame
-    void Update () {
-
     }
 
     public void enterGame () {
