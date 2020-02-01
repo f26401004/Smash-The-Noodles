@@ -165,7 +165,7 @@ public class Socket : MonoBehaviour {
     //     };
     // }
 
-    void sendMessage (int opcode, string value) {
+    public void sendMessage (int opcode, string value) {
         socket.SendMatchStateAsync (this.matchId, opcode, value);
     }
 }

@@ -5,18 +5,23 @@ using UnityEngine;
 public class CharacterAction : MonoBehaviour {
 
     public Socket socket;
-    private Item hold;
-    private Item touch;
+    protected Item hold;
+    protected Item touch;
 
-    private string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"item\":\"{item.type.ToString()}\",\"key\":\"{item.key}\"}}";
+    public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"item\":\"{item.type.ToString()}\",\"key\":\"{item.key}\"}}";
 
-    public void TryPick (Item item) {
-        // send try pick message
-        socket.senMessage (3, payload (item));
+    public void Pick (Item item) {
+        if (hold) {
+            socket.sendMessage (6, payload (hold));
+            hold.gameObject.transform.parent = null;
+        }
+        item.gameObject.transform.parent = transform;
+        item.gameObject.transform.localPosition = Vector3.zero;
+        hold = item;
     }
 
     void OnTriggerStay2D (Collider2D other) {
-        vat item = other.GetComponent<Item> ();
+        var item = other.GetComponent<Item> ();
         if (!item) {
             return;
         }
