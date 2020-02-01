@@ -196,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87115668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440393175}
@@ -1585,8 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 129536195}
-  enemyPrefab: {fileID: 3749387628652255884, guid: 76a0c48d1ba37e94f94df593a4cf919f,
-    type: 3}
+  enemyPrefab: {fileID: 0}
   isLeader: 0
   Pizza: {fileID: 0}
 --- !u!65 &494298147
@@ -1694,18 +1693,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.33744764}
+  m_Offset: {x: 0, y: -0.20337033}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.625, y: 2.96875}
+    oldSize: {x: 10, y: 1.9}
     newSize: {x: 62.5, y: 11.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.625, y: 2.2938547}
+  m_Size: {x: 10, y: 1.4932594}
   m_EdgeRadius: 0
 --- !u!212 &672231249
 SpriteRenderer:
@@ -1765,7 +1764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672231247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -2.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1867,9 +1866,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 16
-  m_RefResolutionX: 200
-  m_RefResolutionY: 120
+  m_AssetsPPU: 40
+  m_RefResolutionX: 600
+  m_RefResolutionY: 300
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -2369,7 +2368,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 5687433107252131833, guid: ef37681acfdbb3a479ddfadea679d999,
+  m_Sprite: {fileID: -4398183398628465896, guid: b8e2406fc418bc14faa40b8733a977f5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2389,7 +2388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425781841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0.05, y: 1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1460458226}
@@ -2509,7 +2508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460458225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.19, y: -2.07, z: 0}
+  m_LocalPosition: {x: -1.19, y: -2.079, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1425781843}
@@ -2596,8 +2595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 129536195}
-  enemyPrefab: {fileID: 3749387628652255884, guid: 76a0c48d1ba37e94f94df593a4cf919f,
-    type: 3}
+  enemyPrefab: {fileID: 0}
   isLeader: 0
   Pizza: {fileID: 7898964619239514293, guid: e5467005077c1405bab238ba289c9ed4, type: 3}
 --- !u!1001 &1722180255
