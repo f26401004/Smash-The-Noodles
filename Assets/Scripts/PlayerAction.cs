@@ -11,19 +11,9 @@ public class PlayerAction : CharacterAction {
         this.hold.Use ();
     }
     public void TryPick (Item item) {
-		if (socket.isLeader)
-		{
-            // 直接撿起，並送Pick
-            socket.itemSet.Remove(item.key);
-            Pick(item);
-            socket.sendMessage(2, $"{{\"id\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}");
-		}
-		else
-		{
-            // send try pick message
-            socket.sendMessage(3, payload(item));
-        }
-        
+		
+        socket.itemSet.Remove(item.key);
+        Pick(item);
     }
 
 	public void Update()
@@ -42,14 +32,11 @@ public class PlayerAction : CharacterAction {
         if (hold == null) {
             return;
         }
-        // send drop message to everyone
-        socket.sendMessage (6, payload (hold));
 
         hold.gameObject.transform.parent = null;
         socket.itemSet.Add(hold.key, hold);
-        hold = null;
-
         hold.GetComponent<Collider2D>().enabled = true;
         hold.isHeld = false;
+        hold = null;
     }
 }

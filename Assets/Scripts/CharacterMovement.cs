@@ -17,18 +17,13 @@ public class CharacterMovement : MonoBehaviour {
         anim = GetComponentInChildren<Animator> ();
     }
 
-    void Update () {
-        float x = Input.GetAxis ("Horizontal");
-        float y = Input.GetAxis ("Vertical");
-        Vector2 dir = new Vector2 (x, y);
+    public void WalkTowards (Vector2 direction) {
+        float x = direction.x;
 
         anim.SetFloat ("HorizontalAxis", Mathf.Abs (x));
 
-        Walk (dir);
+        Walk (direction);
 
-        if (Input.GetButtonDown ("Jump")) {
-            Jump (Vector2.up);
-        }
     }
 
     private void Walk (Vector2 dir) {
@@ -40,7 +35,8 @@ public class CharacterMovement : MonoBehaviour {
         rb.velocity = new Vector2 (dir.x * speed, rb.velocity.y);
     }
 
-    private void Jump (Vector2 dir) {
+    public void Jump () {
+        Vector2 dir = Vector2.up;
         rb.velocity = new Vector2 (rb.velocity.x, 0);
         rb.velocity += dir * jumpForce;
     }
