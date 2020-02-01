@@ -19,7 +19,7 @@ public class PlayerAction : CharacterAction {
         if (hold == null) {
             return;
         }
-
+        StartCoroutine(TemporaryIgnore(hold));
         hold.gameObject.transform.parent = null;
         hold.GetComponent<Collider2D> ().enabled = true;
         hold.isHeld = false;

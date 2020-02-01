@@ -7,11 +7,15 @@ public class Control : MonoBehaviour
     public CharacterMovement p1, p2;
     private PlayerAction p1a, p2a;
     public Transform spawnPosition;
+    public Transform[] itemSpawns;
+    public Item[] items;
 
 	private void Start()
 	{
         p1a = p1.GetComponent<PlayerAction>();
         p2a = p2.GetComponent<PlayerAction>();
+
+        StartCoroutine(ItemSpawn());
     }
 
 	public void LetDie(PlayerAction player)
@@ -19,6 +23,24 @@ public class Control : MonoBehaviour
         // Out for 5 secs
         StartCoroutine(DieAndRespawn(player.gameObject));
 
+	}
+
+	private IEnumerator ItemSpawn()
+	{
+		while (true)
+		{
+			if (FindObjectsOfType<Item>().Length <= 10)
+			{
+                Vector3 spawn = itemSpawns[Random.Range(0, itemSpawns.Length)].position;
+                Item item = items[Random.Range(0, items.Length)];
+
+                Item newItem = Instantiate(item);
+                newItem.transform.position = spawn;
+            }
+            
+
+            yield return new WaitForSeconds(Random.Range(0.5f, 5f));
+		}
 	}
 
 	private IEnumerator DieAndRespawn(GameObject player)

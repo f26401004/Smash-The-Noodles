@@ -7,8 +7,8 @@ public class CharacterAction : MonoBehaviour {
     public Socket socket;
     public Item hold;
     public Item touch;
-    public const float LethalSpeed = 3;
-    public const float TemporaryIgnoreTime = 2;
+    public const float LethalSpeed = 3.5f;
+    public const float TemporaryIgnoreTime = 1;
     public List<Item> tempIgnore = new List<Item>();
 
     public void Start () {
