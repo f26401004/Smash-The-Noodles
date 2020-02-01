@@ -49,17 +49,17 @@ public class TitleScene : MonoBehaviour {
     }
 
     public void rightAboutTab () {
-        aboutTab1.setActive (false);
-        aboutTab2.setActive (true);
-        tabRightButton.setActive (false);
-        tabLeftButton.setActive (true);
+        aboutTab1.SetActive (false);
+        aboutTab2.SetActive (true);
+        tabRightButton.SetActive (false);
+        tabLeftButton.SetActive (true);
     }
 
     public void leftAboutTab () {
-        aboutTab1.setActive (true);
-        aboutTab2.setActive (false);
-        tabRightButton.setActive (true);
-        tabLeftButton.setActive (false);
+        aboutTab1.SetActive (true);
+        aboutTab2.SetActive (false);
+        tabRightButton.SetActive (true);
+        tabLeftButton.SetActive (false);
     }
 
     public void enterGame () {
