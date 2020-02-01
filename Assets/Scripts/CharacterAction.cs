@@ -26,6 +26,7 @@ public class CharacterAction : MonoBehaviour {
         hold = item;
 
         item.GetComponent<Collider2D>().enabled = false;
+        item.transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
         item.GetComponent<Rigidbody2D>().simulated = false;
     }
 

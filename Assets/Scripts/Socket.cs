@@ -147,6 +147,9 @@ public class Socket : MonoBehaviour {
 					{
                         item.transform.SetParent(null);
                         item.transform.position = position;
+                        item.GetComponent<Collider2D>().enabled = true;
+                        item.transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
+                        item.GetComponent<Rigidbody2D>().simulated = true;
                         itemSet.Add(key, item);
                         break;
 					}
