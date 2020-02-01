@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Nakama;
 using UnityEngine;
 using System.Collections.Concurrent;
+using UnityEngine.UI;
 
 public class Socket : MonoBehaviour {
     private ConcurrentQueue<IMatchState> states = new ConcurrentQueue<IMatchState>();
@@ -12,12 +13,13 @@ public class Socket : MonoBehaviour {
     private ISocket socket;
     private string matchId;
     private int memberNumber;
+    public InputField id;
     // Start is called before the first frame update
     async void Start () {
         // config the member number of a game
         this.memberNumber = 2;
 
-        var client = new Client ("http", "2c49e37d.ngrok.io", 80, "defaultkey");
+        var client = new Client ("http", "b6901bd0.ngrok.io", 80, "defaultkey");
         // get the current device id
         this.deviceId = PlayerPrefs.GetString ("nakama.deviceid");
         if (string.IsNullOrEmpty (this.deviceId)) {
@@ -34,16 +36,25 @@ public class Socket : MonoBehaviour {
         this.socket.Closed += () => {
             Debug.Log ("Socket closed.");
         };
+        this.socket.ReceivedMatchState += newState => {
+            var enc = System.Text.Encoding.UTF8;
+            var content = enc.GetString(newState.State);
+            Debug.LogFormat("Received: {0}, {1}", newState.OpCode, content);
+        };
         await this.socket.ConnectAsync (this.session);
 
-        // // create match id
-        // var match = await this.socket.CreateMatchAsync ();
-        // this.matchId = match.Id;
-        // Debug.LogFormat ("New match with id {0}", this.matchId);
-
         // test send message
-        await this.JoinMatch ();
+        // await this.JoinMatch ();
+		
     }
+
+	public async void CreateMatch()
+	{
+        var match = await socket.CreateMatchAsync();
+        Debug.LogFormat("New match with id '{0}'.", match.Id);
+        JoinMatch(match.Id);
+    }
+
 
 	private void Update()
 	{
@@ -55,12 +66,14 @@ public class Socket : MonoBehaviour {
 	}
 
     async Task JoinMatch () {
+
         var query = "*";
         var minCount = this.memberNumber;
         var maxCount = this.memberNumber;
         var matchmakerTicket = await this.socket.AddMatchmakerAsync (query, minCount, maxCount);
 
         this.socket.ReceivedMatchmakerMatched += async matched => {
+            this.matchId = matched.MatchId;
             Debug.LogFormat ("Received: {0}", matched);
             var opponents = string.Join (",\n  ", matched.Users);
             Debug.LogFormat ("Matched opponents: [{0}]", opponents);
