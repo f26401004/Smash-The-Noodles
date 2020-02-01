@@ -10,7 +10,12 @@ public class CharacterAction : MonoBehaviour {
 
     public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"item\":\"{item.type.ToString()}\",\"key\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}";
 
-    public void Pick (Item item) {
+	public void Start()
+	{
+        socket = FindObjectOfType<Socket>();
+	}
+
+	public void Pick (Item item) {
         if (hold) {
 			// Drop
             socket.sendMessage (6, payload (hold));

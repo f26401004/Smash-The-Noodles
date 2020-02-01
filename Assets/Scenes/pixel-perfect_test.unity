@@ -2595,7 +2595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 129536195}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 1362513991794324591, guid: 76a0c48d1ba37e94f94df593a4cf919f,
+    type: 3}
   isLeader: 0
   Pizza: {fileID: 7898964619239514293, guid: e5467005077c1405bab238ba289c9ed4, type: 3}
 --- !u!1001 &1722180255
@@ -2609,6 +2610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pizza
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300563570477682200, guid: e5467005077c1405bab238ba289c9ed4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5300563570477682202, guid: e5467005077c1405bab238ba289c9ed4,
         type: 3}
