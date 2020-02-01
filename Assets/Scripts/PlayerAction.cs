@@ -16,6 +16,7 @@ public class PlayerAction : CharacterAction {
             // 直接撿起，並送Pick
             socket.itemSet.Remove(item.key);
             Pick(item);
+            socket.sendMessage(2, $"{{\"id\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}");
 		}
 		else
 		{
