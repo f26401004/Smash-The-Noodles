@@ -8,6 +8,7 @@ public class Repair : MonoBehaviour
 	public SpriteRenderer repair;
 	public Sprite repaired;
 	public Image HP_bar;
+	public GameObject repairEffect;
 
 	public int hp = 0;
 
@@ -17,7 +18,7 @@ public class Repair : MonoBehaviour
 		{
 			foreach (var item in FindObjectsOfType<Item>())
 			{
-				if (!item.isHeld && item.type != Item.ItemType.Weapon && (item.transform.position - transform.position).sqrMagnitude < 2)
+				if (!item.isHeld && hp < 100 && item.type != Item.ItemType.Weapon && (item.transform.position - transform.position).sqrMagnitude < 2)
 				{
 					Destroy(item.gameObject);
 					AddToHp(item.repairPower);
@@ -29,6 +30,10 @@ public class Repair : MonoBehaviour
 
 	public void AddToHp(int value)
 	{
+		var effect = Instantiate(repairEffect);
+		effect.transform.position = transform.position;
+		Destroy(effect, 2);
+
 		hp = Mathf.Clamp(hp + value, 0, 100);
 
 		// TODO: Update UI
