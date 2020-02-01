@@ -35,7 +35,7 @@ public class Item : MonoBehaviour
 				bool wasHit = false;
 				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>())
+					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>() || hit.collider.GetComponent<Item>())
 					{
 						continue;
 					}
@@ -60,7 +60,7 @@ public class Item : MonoBehaviour
 				wasHit = false;
 				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>())
+					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>() || hit.collider.GetComponent<Item>())
 					{
 						continue;
 					}
