@@ -45,6 +45,7 @@ public class Socket : MonoBehaviour {
             var enc = System.Text.Encoding.UTF8;
             var content = enc.GetString (newState.State);
             Debug.LogFormat ("Received: {0}, {1}", newState.OpCode, content);
+            states.Enqueue(newState);
         };
         await this.socket.ConnectAsync (this.session);
 
