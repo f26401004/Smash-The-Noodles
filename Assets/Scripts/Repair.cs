@@ -9,20 +9,26 @@ public class Repair : MonoBehaviour
 
 	public int hp = 0;
 
-	public void OnTriggerEnter2D(Collider2D collision)
+	public void Update()
 	{
-		Item item = collision.GetComponent<Item>();
-		if (!item || item.type == Item.ItemType.Weapon)
+		if (hp < 100)
 		{
-			return;
+			foreach (var item in FindObjectsOfType<Item>())
+			{
+				Debug.Log((item.transform.position - transform.position).sqrMagnitude);
+				if (!item.isHeld && item.type != Item.ItemType.Weapon && (item.transform.position - transform.position).sqrMagnitude < 2)
+				{
+					Destroy(item.gameObject);
+					AddToHp(10);
+					break;
+				}
+			}
 		}
-		AddToHp(10);
-		Destroy(item.gameObject);
 	}
 
 	public void AddToHp(int value)
 	{
-		hp  = Mathf.Max(hp + value, 100);
+		hp  = Mathf.Min(hp + value, 100);
 		// TODO: Update UI
 		if (hp == 100)
 		{

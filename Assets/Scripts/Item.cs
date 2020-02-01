@@ -31,11 +31,11 @@ public class Item : MonoBehaviour
 			if (gapCounter >= Gap)
 			{
 				gapCounter = 0;
-				var hits = Physics2D.RaycastAll(transform.position + (velocity.y >= 0 ? Vector3.down : Vector3.up) * 0.4f, (velocity.y >= 0 ? Vector3.down : Vector3.up), Mathf.Abs(velocity.y) * Time.deltaTime);
+				var hits = Physics2D.RaycastAll(transform.position + (velocity.y >= 0 ? Vector3.down : Vector3.up) * 0.4f, (velocity.y >= 0 ? Vector3.down : Vector3.up), Mathf.Abs(velocity.y) * Time.deltaTime * 3);
 				bool wasHit = false;
 				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>() || hit.collider.GetComponent<Item>())
+					if (hit.collider.gameObject == gameObject || hit.collider.gameObject.layer == 8 || hit.collider.GetComponent<Item>())
 					{
 						continue;
 					}
@@ -56,11 +56,11 @@ public class Item : MonoBehaviour
 					velocity = new Vector2(velocity.x * 0.99f, 0);
 				}
 
-				hits = Physics2D.RaycastAll(transform.position + (velocity.x < 0 ? Vector3.left : Vector3.right) * 0.4f, velocity.x < 0 ? Vector2.left : Vector2.right, Mathf.Abs(velocity.x) * Time.deltaTime);
+				hits = Physics2D.RaycastAll(transform.position + (velocity.x < 0 ? Vector3.left : Vector3.right) * 0.4f, velocity.x < 0 ? Vector2.left : Vector2.right, Mathf.Abs(velocity.x) * Time.deltaTime * 3);
 				wasHit = false;
 				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject == gameObject || hit.collider.GetComponent<PlayerAction>() || hit.collider.GetComponent<Item>())
+					if (hit.collider.gameObject == gameObject || hit.collider.gameObject.layer == 8 || hit.collider.GetComponent<Item>())
 					{
 						continue;
 					}
