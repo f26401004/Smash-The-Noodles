@@ -10,9 +10,9 @@ using UnityEngine.UI;
 
 public class Socket : MonoBehaviour {
     private ConcurrentQueue<IMatchState> states = new ConcurrentQueue<IMatchState> ();
-    private ISession session;
+    public ISession session;
     private string deviceId;
-    private ISocket socket;
+    public ISocket socket;
     private string matchId;
     private int memberNumber;
     public InputField id;
@@ -21,7 +21,7 @@ public class Socket : MonoBehaviour {
     private bool isConnected = false;
     public bool isLeader = false;
     // Set of all items.
-    private Dictionary<string, Item> itemSet = new Dictionary<string, Item> ();
+    public Dictionary<string, Item> itemSet = new Dictionary<string, Item> ();
 
     // Item Prefabs
     public Item Pizza;
@@ -29,6 +29,7 @@ public class Socket : MonoBehaviour {
     private string position => $"{{\"x\":\"{transform.position.x}\",\"y\":\"{transform.position.y}\"}}";
     // Start is called before the first frame update
     async void Start () {
+        Debug.Log(Item.ItemType.Pizza);
         // config the member number of a game
         this.memberNumber = 2;
 
@@ -63,6 +64,12 @@ public class Socket : MonoBehaviour {
     }
 
     private void Update () {
+		if (isLeader && Input.GetKeyDown(KeyCode.I))
+		{
+            Item item = GenerateItem("Pizza", new Vector3(2.9f, -1.8f, 0), Guid.NewGuid().ToString());
+            itemSet.Add(item.key, item);
+            sendMessage(11, $"{{\"x\":\"{ 2.9f }\",\"y\":\"{ -1.8f }\",\"item\":\"{ "Pizza" }\",\"key\":\"{item.key}\"}}");
+		}
         if (isConnected) {
             this.sendMessage (1, position);
         }
@@ -86,15 +93,15 @@ public class Socket : MonoBehaviour {
                 enemies[enemyId].GetComponent<EnemyMovement>().WalkTo (new Vector3 (x, y));
             }
             // Pick. 只有一般玩家需要處理這個訊息
-            // id: item_id
+            // id: item_id, picker
             else if (state.OpCode == 2 && !isLeader) {
                 // Make someonee pipck up something
                 Item itemPicked = itemSet[decoded["id"].ToString()];
                 itemSet.Remove(decoded["id"].ToString());
 
-				if (enemies.ContainsKey(state.UserPresence.UserId))
+				if (enemies.ContainsKey(decoded["who"].ToString()))
 				{
-                    enemies[state.UserPresence.UserId].Pick(itemPicked);
+                    enemies[decoded["who"].ToString()].Pick(itemPicked);
                 }
 				else
 				{
@@ -113,38 +120,64 @@ public class Socket : MonoBehaviour {
                     Item itemPicked = itemSet[decoded["id"].ToString()];
                     itemSet.Remove(decoded["id"].ToString());
 
-                    if (enemies.ContainsKey(state.UserPresence.UserId))
+                    if (enemies.ContainsKey(decoded["who"].ToString()))
                     {
-                        enemies[state.UserPresence.UserId].Pick(itemPicked);
+                        enemies[decoded["who"].ToString()].Pick(itemPicked);
                     }
                     else
                     {
                         GetComponent<PlayerAction>().Pick(itemPicked);
                     }
+
+                    // send pick
+                    sendMessage(2, $"{{\"id\":\"{decoded["id"].ToString()}\",\"who\":\"{decoded["who"].ToString()}\"}}");
                 }
 			}
             // 物品因為交換被放下
             // id: item_id, tag: item_type, position: position
             else if (state.OpCode == 6)
             {
-                // TODO: 加入 ITEM SET
+                // 加入 ITEM SET
+                string type = decoded["item"].ToString();
+                Vector3 position = new Vector3(float.Parse(decoded["x"].ToString()), float.Parse(decoded["y"].ToString()));
+                string key = decoded["key"].ToString();
+				foreach(var item in FindObjectsOfType<Item>())
+				{
+					if (item.key == key)
+					{
+                        item.transform.SetParent(null);
+                        item.transform.position = position;
+                        itemSet.Add(key, item);
+                        break;
+					}
+				}
             }
             // 新物品，由房主生成
             // id: item_id, tag: item_type, position: position
             else if (state.OpCode == 11)
 			{
-                // TODO: 生成物品, 加入 item set
+				// 生成物品，並加入 itemset
                 string type = decoded["item"].ToString();
                 Vector3 position = new Vector3(float.Parse(decoded["x"].ToString()), float.Parse(decoded["y"].ToString()));
                 string key = decoded["key"].ToString();
-                GenerateItem(type, position, key);
+                Item item = GenerateItem(type, position, key);
+                itemSet.Add(key, item);
             }
         }
     }
 
-	private void GenerateItem(string type, Vector3 position, string key)
+	private Item GenerateItem(string type, Vector3 position, string key)
 	{
-
+        // TODO: 生成物品
+        Item item = null;
+		if (type == "Pizza")
+		{
+            item = Instantiate(Pizza);
+            item.type = Item.ItemType.Pizza;
+		}
+        item.transform.position = position;
+        item.key = key;
+        return item;
 	}
 
     public async void CreateMatch () {

@@ -11,11 +11,20 @@ public class PlayerAction : CharacterAction {
         this.hold.Use ();
     }
     public void TryPick (Item item) {
-        // send try pick message
-        socket.sendMessage (3, payload (item));
+		if (socket.isLeader)
+		{
+            // 直接撿起，並送Pick
+            socket.itemSet.Remove(item.key);
+            Pick(item);
+		}
+		else
+		{
+            // send try pick message
+            socket.sendMessage(3, payload(item));
+        }
+        
     }
 
-    // TODO: item set
     public void Drop () {
         if (hold == null) {
             return;
@@ -24,6 +33,7 @@ public class PlayerAction : CharacterAction {
         socket.sendMessage (6, payload (hold));
 
         hold.gameObject.transform.parent = null;
-        hold.gameObject.transform.localPosition = Vector3.zero;
+        socket.itemSet.Add(hold.key, hold);
+        hold = null;
     }
 }

@@ -8,10 +8,11 @@ public class CharacterAction : MonoBehaviour {
     protected Item hold;
     protected Item touch;
 
-    public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"item\":\"{item.type.ToString()}\",\"key\":\"{item.key}\"}}";
+    public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"item\":\"{item.type.ToString()}\",\"key\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}";
 
     public void Pick (Item item) {
         if (hold) {
+			// Drop
             socket.sendMessage (6, payload (hold));
             hold.gameObject.transform.parent = null;
         }
