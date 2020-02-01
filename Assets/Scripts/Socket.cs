@@ -4,7 +4,6 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using LitJson;
-using LitJson;
 using Nakama;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,8 +16,8 @@ public class Socket : MonoBehaviour {
     private string matchId;
     private int memberNumber;
     public InputField id;
-    public EnemyMovement enemyPrefab;
-    public Dictionary<string, EnemyMovement> enemies = new Dictionary<string, EnemyMovement> ();
+    public EnemyAction enemyPrefab;
+    public Dictionary<string, EnemyAction> enemies = new Dictionary<string, EnemyAction> ();
     private bool isConnected = false;
     public bool isLeader = false;
     // Set of all items.
@@ -84,22 +83,22 @@ public class Socket : MonoBehaviour {
             if (state.OpCode == 1) {
                 float x = float.Parse (decoded["x"].ToString ());
                 float y = float.Parse (decoded["y"].ToString ());
-                enemies[enemyId].WalkTo (new Vector3 (x, y));
+                enemies[enemyId].GetComponent<EnemyMovement>().WalkTo (new Vector3 (x, y));
             }
             // Pick. 只有一般玩家需要處理這個訊息
             // id: item_id
             else if (state.OpCode == 2 && !isLeader) {
-                // TODO: Make someonee pipck up something
+                // Make someonee pipck up something
                 Item itemPicked = itemSet[decoded["id"].ToString()];
                 itemSet.Remove(decoded["id"].ToString());
 
 				if (enemies.ContainsKey(state.UserPresence.UserId))
 				{
-
-				}
+                    enemies[state.UserPresence.UserId].Pick(itemPicked);
+                }
 				else
 				{
-
+                    GetComponent<PlayerAction>().Pick(itemPicked);
 				}
 
             }
@@ -110,17 +109,17 @@ public class Socket : MonoBehaviour {
                 if (itemSet.ContainsKey (decoded["id"].ToString ())) {
                     // Send actual pick
                     socket.SendMatchStateAsync (matchId, 2, $"{{\"picker\":\"{state.UserPresence.UserId}\",\"item\":{decoded["id"].ToString()}}}");
-                    // TODO: Make someonee pipck up something
+                    // Make someonee pipck up something	
                     Item itemPicked = itemSet[decoded["id"].ToString()];
                     itemSet.Remove(decoded["id"].ToString());
 
                     if (enemies.ContainsKey(state.UserPresence.UserId))
                     {
-
+                        enemies[state.UserPresence.UserId].Pick(itemPicked);
                     }
                     else
                     {
-
+                        GetComponent<PlayerAction>().Pick(itemPicked);
                     }
                 }
 			}
@@ -134,9 +133,12 @@ public class Socket : MonoBehaviour {
             // id: item_id, tag: item_type, position: position
             else if (state.OpCode == 11)
 			{
-				// TODO: 生成物品
-				//decoded[]
-			}
+                // TODO: 生成物品, 加入 item set
+                string type = decoded["item"].ToString();
+                Vector3 position = new Vector3(float.Parse(decoded["x"].ToString()), float.Parse(decoded["y"].ToString()));
+                string key = decoded["key"].ToString();
+                GenerateItem(type, position, key);
+            }
         }
     }
 
