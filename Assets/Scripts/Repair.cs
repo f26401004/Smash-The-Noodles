@@ -15,7 +15,6 @@ public class Repair : MonoBehaviour
 		{
 			foreach (var item in FindObjectsOfType<Item>())
 			{
-				Debug.Log((item.transform.position - transform.position).sqrMagnitude);
 				if (!item.isHeld && item.type != Item.ItemType.Weapon && (item.transform.position - transform.position).sqrMagnitude < 2)
 				{
 					Destroy(item.gameObject);
