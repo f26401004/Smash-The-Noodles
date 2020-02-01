@@ -11,4 +11,9 @@ public class Item : MonoBehaviour
 	}
 
 	public ItemType type;
+
+	public void Use()
+	{
+
+	}
 }
