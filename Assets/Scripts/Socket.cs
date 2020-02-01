@@ -54,7 +54,11 @@ public class Socket : MonoBehaviour {
     }
 
     private void Update () {
-        this.sendMessage(1, position);
+		if (socket != null)
+		{
+            this.sendMessage(1, position);	
+        }
+        
         while (states.TryDequeue (out var state)) {
             var payload = System.Text.Encoding.UTF8.GetString (state.State);
             Debug.Log ($"{state.OpCode}, {payload}");
@@ -93,6 +97,7 @@ public class Socket : MonoBehaviour {
             return;
         }
         var match = await socket.JoinMatchAsync (matchId);
+        this.matchId = match.Id;
         // send current position to opponent
         this.sendMessage (1, position);
     }
