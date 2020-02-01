@@ -18,7 +18,7 @@ public class Socket : MonoBehaviour {
     public EnemyMovement enemyPrefab;
     public Dictionary<string, EnemyMovement> enemies = new Dictionary<string, EnemyMovement>();
 
-    private string position => $"{{\"x\":{transform.position.x},\"y\":{transform.position.y}}}";
+    private string position => $"{{\"x\":\"{transform.position.x}\",\"y\":\"{transform.position.y}\"}}";
     // Start is called before the first frame update
     async void Start () {
         // config the member number of a game
