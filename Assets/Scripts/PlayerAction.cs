@@ -27,4 +27,9 @@ public class PlayerAction : CharacterAction {
         hold = null;
         touch = null;
     }
+
+	public void Throw()
+	{
+
+	}
 }

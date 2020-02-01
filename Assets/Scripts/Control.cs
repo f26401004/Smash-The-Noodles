@@ -32,6 +32,10 @@ public class Control : MonoBehaviour
         {
             p1a.Drop();
         }
+		if (Input.GetKeyDown(KeyCode.F) && p1a.hold)
+		{
+            p1a.Throw();
+		}
 
         // p2
         if (Input.GetKeyDown(KeyCode.P) && p2a.touch)
@@ -41,6 +45,10 @@ public class Control : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O) && p2a.hold)
         {
             p2a.Drop();
+        }
+        if (Input.GetKeyDown(KeyCode.L) && p2a.hold)
+        {
+            p2a.Throw();
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 	public bool isHeld = false;
-	private float velocity = 0;
+	private Vector2 velocity = Vector2.zero;
 	public float acceleration = 10;
 
 	public const int Gap = 5;
@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
 			if (gapCounter >= Gap)
 			{
 				gapCounter = 0;
-				var hits = Physics2D.RaycastAll(transform.position + Vector3.down * 0.4f, Vector2.down, velocity * Time.deltaTime);
+				var hits = Physics2D.RaycastAll(transform.position + Vector3.down * 0.4f, Vector2.down, velocity.y * Time.deltaTime);
 				bool wasHit = false;
 				foreach (var hit in hits)
 				{
@@ -49,18 +49,39 @@ public class Item : MonoBehaviour
 
 				if (!wasHit)
 				{
-					velocity += acceleration * Time.deltaTime * Gap;
+					velocity += acceleration * Time.deltaTime * Gap * Vector2.up;
 				}
 				else
 				{
-					velocity = 0;
+					velocity = new Vector2(velocity.x, 0);
+				}
+
+				hits = Physics2D.RaycastAll(transform.position + (velocity.x < 0 ? Vector3.left : Vector3.right) * 0.4f, velocity.x < 0 ? Vector2.left : Vector2.right, Mathf.Abs(velocity.x) * Time.deltaTime);
+				wasHit = false;
+				foreach (var hit in hits)
+				{
+					if (hit.collider.gameObject == gameObject)
+					{
+						continue;
+					}
+
+					if (hit.collider != null)
+					{
+						wasHit = true;
+						break;
+					}
+				}
+
+				if (wasHit)
+				{
+					velocity = new Vector2(0, velocity.y);
 				}
 
 			}
 
 			gapCounter++;
 
-			transform.Translate(0, -velocity * Time.deltaTime, 0);
+			transform.Translate(velocity.x * Time.deltaTime, -velocity.y * Time.deltaTime, 0);
 		}
 		else
 		{
