@@ -17,6 +17,7 @@ public class Socket : MonoBehaviour {
     public InputField id;
     public EnemyMovement enemyPrefab;
     public Dictionary<string, EnemyMovement> enemies = new Dictionary<string, EnemyMovement>();
+    private bool isConnected = false;
 
     private string position => $"{{\"x\":\"{transform.position.x}\",\"y\":\"{transform.position.y}\"}}";
     // Start is called before the first frame update
@@ -55,7 +56,7 @@ public class Socket : MonoBehaviour {
     }
 
     private void Update () {
-		if (socket != null)
+		if (isConnected)
 		{
             this.sendMessage(1, position);	
         }
@@ -90,6 +91,7 @@ public class Socket : MonoBehaviour {
         match = await socket.JoinMatchAsync (matchId);
         // send current position to opponent
         this.sendMessage (1, position);
+        isConnected = true;
     }
 
     public async void JoinMatch () {
@@ -101,6 +103,7 @@ public class Socket : MonoBehaviour {
         this.matchId = match.Id;
         // send current position to opponent
         this.sendMessage (1, position);
+        isConnected = true;
     }
 
     // public async void JoinMatch (string matchId) {
