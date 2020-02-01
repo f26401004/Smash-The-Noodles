@@ -34,11 +34,6 @@ public class Socket : MonoBehaviour {
         };
         await this.socket.ConnectAsync (this.session);
 
-        // create match id
-        var match = await this.socket.CreateMatchAsync ();
-        this.matchId = match.Id;
-        Debug.LogFormat ("New match with id {0}", this.matchId);
-
         // test send message
         await this.JoinMatch ();
     }
@@ -50,6 +45,7 @@ public class Socket : MonoBehaviour {
         var matchmakerTicket = await this.socket.AddMatchmakerAsync (query, minCount, maxCount);
 
         this.socket.ReceivedMatchmakerMatched += async matched => {
+            this.matchId = matched.MatchId;
             Debug.LogFormat ("Received: {0}", matched);
             var opponents = string.Join (",\n  ", matched.Users);
             Debug.LogFormat ("Matched opponents: [{0}]", opponents);
