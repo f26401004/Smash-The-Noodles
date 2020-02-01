@@ -20,7 +20,7 @@ public class Repair : MonoBehaviour
 				if (!item.isHeld && item.type != Item.ItemType.Weapon && (item.transform.position - transform.position).sqrMagnitude < 2)
 				{
 					Destroy(item.gameObject);
-					AddToHp(10);
+					AddToHp(item.repairPower);
 					break;
 				}
 			}
@@ -29,7 +29,7 @@ public class Repair : MonoBehaviour
 
 	public void AddToHp(int value)
 	{
-		hp  = Mathf.Min(hp + value, 100);
+		hp = Mathf.Clamp(hp + value, 0, 100);
 
 		// TODO: Update UI
 		if(HP_bar){

@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
 	public bool isHeld = false;
 	public Vector2 velocity = Vector2.zero;
 	public float acceleration = 10;
+	public int repairPower;
 
 	public const int Gap = 5;
 	private int gapCounter = 0;
