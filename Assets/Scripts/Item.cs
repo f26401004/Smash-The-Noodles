@@ -86,6 +86,7 @@ public class Item : MonoBehaviour
 		else
 		{
 			transform.localPosition = Vector3.zero;
+			velocity = Vector2.zero;
 		}
 	}
 		

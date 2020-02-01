@@ -6,11 +6,31 @@ public class Control : MonoBehaviour
 {
     public CharacterMovement p1, p2;
     private PlayerAction p1a, p2a;
+    public Transform spawnPosition;
 
 	private void Start()
 	{
         p1a = p1.GetComponent<PlayerAction>();
         p2a = p2.GetComponent<PlayerAction>();
+    }
+
+	public void LetDie(PlayerAction player)
+	{
+        // Out for 5 secs
+        StartCoroutine(DieAndRespawn(player.gameObject));
+
+	}
+
+	private IEnumerator DieAndRespawn(GameObject player)
+	{
+		if (player.GetComponent<PlayerAction>().hold)
+		{
+            player.GetComponent<PlayerAction>().Drop();
+        }
+        player.SetActive(false);
+        player.transform.position = spawnPosition.position;
+        yield return new WaitForSeconds(3);
+        player.SetActive(true);
     }
 
 	void Update()
