@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Nakama;
 using UnityEngine;
 using UnityEngine.UI;
+using LitJson;
 
 public class Socket : MonoBehaviour {
     private ConcurrentQueue<IMatchState> states = new ConcurrentQueue<IMatchState> ();
@@ -14,6 +15,8 @@ public class Socket : MonoBehaviour {
     private string matchId;
     private int memberNumber;
     public InputField id;
+    public EnemyMovement enemyPrefab;
+    public Dictionary<string, EnemyMovement> enemies = new Dictionary<string, EnemyMovement>();
 
     private string position => $"{{\"x\":{transform.position.x},\"y\":{transform.position.y}}}";
     // Start is called before the first frame update
@@ -54,6 +57,22 @@ public class Socket : MonoBehaviour {
         while (states.TryDequeue (out var state)) {
             var payload = System.Text.Encoding.UTF8.GetString (state.State);
             Debug.Log ($"{state.OpCode}, {payload}");
+
+            string enemyId = state.UserPresence.UserId;
+            if (!enemies.ContainsKey(enemyId))
+            {
+                var newEnemy = Instantiate(enemyPrefab);
+                enemies.Add(enemyId, newEnemy);
+            }
+
+            JsonData decoded = JsonMapper.ToObject(payload);
+
+            if (state.OpCode == 1)
+			{
+                float x = float.Parse(decoded["x"].ToString());
+                float y = float.Parse(decoded["y"].ToString());
+                enemies[enemyId].WalkTo(new Vector3(x, y));
+			}
         }
     }
 
