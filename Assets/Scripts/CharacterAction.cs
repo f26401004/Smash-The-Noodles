@@ -5,8 +5,8 @@ using UnityEngine;
 public class CharacterAction : MonoBehaviour {
 
     public Socket socket;
-    protected Item hold;
-    protected Item touch;
+    public Item hold;
+    public Item touch;
 
     
 	public void Start()
@@ -27,12 +27,23 @@ public class CharacterAction : MonoBehaviour {
         item.isHeld = true;
     }
 
-    void OnTriggerStay2D (Collider2D other) {
-        var item = other.GetComponent<Item> ();
-        if (!item) {
+    void OnTriggerStay2D(Collider2D other)
+    {
+        var item = other.GetComponent<Item>();
+        if (!item)
+        {
             return;
         }
         touch = item;
     }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        var item = other.GetComponent<Item>();
+        if (item && item == touch)
+        {
+            touch = null;
+        }
+	}
 
 }
