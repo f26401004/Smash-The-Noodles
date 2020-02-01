@@ -24,6 +24,9 @@ public class CharacterAction : MonoBehaviour {
         item.gameObject.transform.parent = transform;
         item.gameObject.transform.localPosition = Vector3.zero;
         hold = item;
+
+        item.GetComponent<Collider2D>().enabled = false;
+        item.isHeld = true;
     }
 
     void OnTriggerStay2D (Collider2D other) {

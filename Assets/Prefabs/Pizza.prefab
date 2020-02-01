@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5300563570477682203}
   - component: {fileID: 7898964619239514293}
   - component: {fileID: 1161663665833935859}
+  - component: {fileID: 653147573735011574}
   m_Layer: 0
   m_Name: Pizza
   m_TagString: Untagged
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e09b54244afb44ab864eec210ab0cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceleration: 10
   key: 
   type: 0
 --- !u!58 &1161663665833935859
@@ -113,3 +115,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!50 &653147573735011574
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300563570477682200}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

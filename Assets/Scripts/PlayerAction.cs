@@ -48,5 +48,8 @@ public class PlayerAction : CharacterAction {
         hold.gameObject.transform.parent = null;
         socket.itemSet.Add(hold.key, hold);
         hold = null;
+
+        hold.GetComponent<Collider2D>().enabled = true;
+        hold.isHeld = false;
     }
 }

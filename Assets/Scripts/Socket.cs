@@ -148,9 +148,13 @@ public class Socket : MonoBehaviour {
                         item.transform.SetParent(null);
                         item.transform.position = position;
                         itemSet.Add(key, item);
+                        item.GetComponent<Collider2D>().enabled = true;
+                        item.isHeld = false;
                         break;
 					}
 				}
+
+                
             }
             // 新物品，由房主生成
             // id: item_id, tag: item_type, position: position
