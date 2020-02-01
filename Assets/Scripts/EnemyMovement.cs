@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void Update() {
-        Vector3 nextPosition = Vector3.lerp(transform.position, targetPosition, 0.5f);
+        Vector3 nextPosition = Vector3.Lerp(transform.position, targetPosition, 0.5f);
         float x = nextPosition.x - transform.position.x;
         anim.SetFloat("HorizontalAxis", Mathf.Abs(x));
 
