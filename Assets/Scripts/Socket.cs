@@ -44,7 +44,7 @@ public class Socket : MonoBehaviour {
         await this.socket.ConnectAsync (this.session);
 
         // test send message
-        // await this.JoinMatch ();
+        await this.JoinMatch ();
 		
     }
 
@@ -52,7 +52,7 @@ public class Socket : MonoBehaviour {
 	{
         var match = await socket.CreateMatchAsync();
         Debug.LogFormat("New match with id '{0}'.", match.Id);
-        JoinMatch(match.Id);
+        // JoinMatch(match.Id);
     }
 
 
