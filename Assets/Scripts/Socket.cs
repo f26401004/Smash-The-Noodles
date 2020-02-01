@@ -68,7 +68,7 @@ public class Socket : MonoBehaviour {
 		{
             Item item = GenerateItem("Pizza", new Vector3(2.9f, -1.8f, 0), Guid.NewGuid().ToString());
             itemSet.Add(item.key, item);
-            sendMessage(11, $"{{\"x\":\"{ 2.9f }\",\"y\":\"{ -1.8f }\",\"item\":\"{ "Pizza" }\",\"id\":\"{item.key}\"}}");
+            sendMessage(11, $"{{\"x\":\"{ 2.9f }\",\"y\":\"{ -1.8f }\",\"item\":\"{ "Pizza" }\",\"key\":\"{item.key}\"}}");
 		}
         if (isConnected) {
             this.sendMessage (1, position);
@@ -140,16 +140,13 @@ public class Socket : MonoBehaviour {
                 // 加入 ITEM SET
                 string type = decoded["item"].ToString();
                 Vector3 position = new Vector3(float.Parse(decoded["x"].ToString()), float.Parse(decoded["y"].ToString()));
-                string key = decoded["id"].ToString();
+                string key = decoded["key"].ToString();
 				foreach(var item in FindObjectsOfType<Item>())
 				{
 					if (item.key == key)
 					{
                         item.transform.SetParent(null);
                         item.transform.position = position;
-                        item.GetComponent<Collider2D>().enabled = true;
-                        item.transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
-                        item.GetComponent<Rigidbody2D>().simulated = true;
                         itemSet.Add(key, item);
                         break;
 					}
@@ -162,7 +159,7 @@ public class Socket : MonoBehaviour {
 				// 生成物品，並加入 itemset
                 string type = decoded["item"].ToString();
                 Vector3 position = new Vector3(float.Parse(decoded["x"].ToString()), float.Parse(decoded["y"].ToString()));
-                string key = decoded["id"].ToString();
+                string key = decoded["key"].ToString();
                 Item item = GenerateItem(type, position, key);
                 itemSet.Add(key, item);
             }
