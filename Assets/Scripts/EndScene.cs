@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndScene : MonoBehaviour {
+    public Text winnerText;
     private int currentIndex;
     // Start is called before the first frame update
     void Start () {
         // startAnimator = startButton.GetComponent<Animator> ();
         // exitAnimator = exitButton.GetComponent<Animator> ();
         currentIndex = 0;
+        winnerText.text = $"Player {Winner.winnerIndex + 1} Win!!";
     }
 
     // Update is called once per frame
