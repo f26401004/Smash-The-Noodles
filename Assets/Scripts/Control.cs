@@ -30,6 +30,7 @@ public class Control : MonoBehaviour
         player.SetActive(false);
         player.transform.position = spawnPosition.position;
         yield return new WaitForSeconds(3);
+        player.transform.position = spawnPosition.position;
         player.SetActive(true);
     }
 

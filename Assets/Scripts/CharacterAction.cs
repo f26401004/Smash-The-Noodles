@@ -7,7 +7,8 @@ public class CharacterAction : MonoBehaviour {
     public Socket socket;
     public Item hold;
     public Item touch;
-    public const float LethalSpeed = 3;
+    public const float LethalSpeed = 4;
+    public const float TemporaryIgnoreTime = 2;
     public List<Item> tempIgnore = new List<Item>();
 
     public void Start () {
@@ -30,7 +31,7 @@ public class CharacterAction : MonoBehaviour {
 	protected IEnumerator TemporaryIgnore(Item item)
 	{
         tempIgnore.Add(item);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(TemporaryIgnoreTime);
         tempIgnore.Remove(item);
     }
 

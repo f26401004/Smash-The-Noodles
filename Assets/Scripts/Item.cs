@@ -53,7 +53,7 @@ public class Item : MonoBehaviour
 				}
 				else
 				{
-					velocity = new Vector2(velocity.x, 0);
+					velocity = new Vector2(velocity.x * 0.99f, 0);
 				}
 
 				hits = Physics2D.RaycastAll(transform.position + (velocity.x < 0 ? Vector3.left : Vector3.right) * 0.4f, velocity.x < 0 ? Vector2.left : Vector2.right, Mathf.Abs(velocity.x) * Time.deltaTime);
@@ -80,7 +80,7 @@ public class Item : MonoBehaviour
 			}
 
 			gapCounter++;
-
+			velocity = new Vector2(velocity.x * 0.99f, velocity.y);
 			transform.Translate(velocity.x * Time.deltaTime, -velocity.y * Time.deltaTime, 0);
 		}
 		else
