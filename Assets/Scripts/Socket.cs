@@ -54,6 +54,7 @@ public class Socket : MonoBehaviour {
     }
 
     private void Update () {
+        this.sendMessage(1, position);
         while (states.TryDequeue (out var state)) {
             var payload = System.Text.Encoding.UTF8.GetString (state.State);
             Debug.Log ($"{state.OpCode}, {payload}");
