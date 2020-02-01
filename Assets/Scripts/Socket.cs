@@ -9,8 +9,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Socket : MonoBehaviour {
-    // Set of all items.
-    public Dictionary<string, Item> itemSet = new Dictionary<string, Item> ();
 
     // Item Prefabs
     public Item Pizza;
