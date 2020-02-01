@@ -8,7 +8,7 @@ public class CharacterAction : MonoBehaviour {
     protected Item hold;
     protected Item touch;
 
-    public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"item\":\"{item.type.ToString()}\",\"id\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}";
+    public string payload (Item item) => $"{{\"x\":\"{item.gameObject.transform.position.x}\",\"y\":\"{item.gameObject.transform.position.y}\",\"id\":\"{item.type.ToString()}\",\"key\":\"{item.key}\",\"who\":\"{socket.session.UserId}\"}}";
 
 	public void Start()
 	{
@@ -26,8 +26,7 @@ public class CharacterAction : MonoBehaviour {
         hold = item;
 
         item.GetComponent<Collider2D>().enabled = false;
-        item.transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
-        item.GetComponent<Rigidbody2D>().simulated = false;
+        item.isHeld = true;
     }
 
     void OnTriggerStay2D (Collider2D other) {
@@ -36,15 +35,6 @@ public class CharacterAction : MonoBehaviour {
             return;
         }
         touch = item;
-    }
-
-	private void OnTriggerExit2D(Collider2D other)
-	{
-        var item = other.GetComponent<Item>();
-        if (item == touch)
-        {
-            touch = null;
-        }
     }
 
 }
