@@ -11,13 +11,8 @@ public class TitleScene : MonoBehaviour {
     private int currentIndex;
     // Start is called before the first frame update
     void Start () {
-<<<<<<< HEAD
-        startAnimator = startButton.GetComponent<Animator> ();
-        exitAnimator = exitButton.GetComponent<Animator> ();
-=======
         // startAnimator = startButton.GetComponent<Animator> ();
         // exitAnimator = exitButton.GetComponent<Animator> ();
->>>>>>> eedcfaed397b683d776e155ff1aca145bd861bda
         currentIndex = 0;
     }
 
