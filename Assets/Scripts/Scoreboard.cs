@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Scoreboard : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class Scoreboard : MonoBehaviour
 		{
 			score += repair.hp;
 		}
+
+		if (score == (100 * repairs.Length))
+		{
+			Win();
+		}
 		score /= (100 * repairs.Length);
 
 		scoreText.text = Mathf.Floor(score * 100).ToString() + "%";
@@ -31,4 +37,16 @@ public class Scoreboard : MonoBehaviour
 			}
 		}
 	}
+
+	public void Win()
+	{
+		Winner.winnerIndex = playerIndex;
+		SceneManager.LoadScene("end");
+
+	}
+}
+
+public class Winner
+{
+	public static int winnerIndex;
 }
