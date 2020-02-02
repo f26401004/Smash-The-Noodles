@@ -7,19 +7,23 @@ public class CharacterAction : MonoBehaviour {
     public Socket socket;
     public Transform hand;
     public Item hold;
-    public Item touch;
+    public Item touch = null;
     public const float LethalSpeed = 3.5f;
     public const float TemporaryIgnoreTime = 1;
     public List<Item> tempIgnore = new List<Item>();
     public Animator animator;
     public RuntimeAnimatorController normalController, holdingController;
 
+    public Transform exilePosition;
+    public Transform arrow;
+
     public void Start () {
         socket = FindObjectOfType<Socket> ();
         animator.runtimeAnimatorController = normalController;
     }
 
-    public void Drop()
+
+	public void Drop()
     {
         if (hold == null)
         {
