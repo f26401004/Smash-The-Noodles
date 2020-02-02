@@ -82,12 +82,22 @@ public class Item : MonoBehaviour
 
 			gapCounter++;
 			velocity = new Vector2(velocity.x * 0.99f, velocity.y);
-			transform.Translate(velocity.x * Time.deltaTime, -velocity.y * Time.deltaTime, 0);
+			transform.Translate(velocity.x * Time.deltaTime, -velocity.y * Time.deltaTime, 0, Space.World);
 		}
 		else
 		{
 			transform.localPosition = Vector3.zero;
 			velocity = Vector2.zero;
+		}
+
+		if (isHeld && type == ItemType.Weapon)
+		{
+			transform.localEulerAngles = new Vector3(0, 0, 30);
+		}
+
+		if (type == ItemType.Weapon && velocity.sqrMagnitude > 0.05f)
+		{
+			transform.Rotate(0, 0, velocity.sqrMagnitude * 30 * Time.deltaTime);
 		}
 	}
 		
