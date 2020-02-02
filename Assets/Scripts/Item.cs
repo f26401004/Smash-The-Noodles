@@ -108,7 +108,8 @@ public class Item : MonoBehaviour
 
 		if (type == ItemType.Weapon && velocity.sqrMagnitude > 0.05f)
 		{
-			transform.Rotate(0, 0, velocity.sqrMagnitude * 30 * Time.deltaTime);
+			float multiplier = velocity.x > 0 ? -1 : 1;
+			transform.Rotate(0, 0, velocity.sqrMagnitude * 30 * Time.deltaTime * multiplier);
 		}
 	}
 		
