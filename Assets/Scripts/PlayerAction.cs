@@ -22,7 +22,7 @@ public class PlayerAction : CharacterAction {
         Item item = hold;
         StartCoroutine(TemporaryIgnore(item));
         Drop();
-        item.velocity += (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) * 1.5f + 2f) * Vector2.right * transform.localScale.x;
-        item.velocity -= Vector2.up * 5;
+        item.velocity += (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) * 1.5f + 3f) * Vector2.right * transform.localScale.x;
+        item.velocity -= Vector2.up * 4;
 	}
 }
