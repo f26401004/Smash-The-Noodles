@@ -2203,6 +2203,7 @@ MonoBehaviour:
   - {fileID: 2001951401}
   - {fileID: 587231473}
   scoreBarExtendTo: 0.98
+  playerIndex: 1
 --- !u!114 &874772389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2223,6 +2224,7 @@ MonoBehaviour:
   - {fileID: 1140798738}
   - {fileID: 763646204}
   scoreBarExtendTo: 0.98
+  playerIndex: 0
 --- !u!114 &874772390
 MonoBehaviour:
   m_ObjectHideFlags: 0
