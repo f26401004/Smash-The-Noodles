@@ -6,7 +6,16 @@ public class PlayerAction : CharacterAction {
 
 
     public void Update () {
-
+        if (touch != null && !hold)
+        {
+            Debug.Log(touch);
+            arrow.position = touch.transform.position + Vector3.up;
+        }
+        else
+        {
+            Debug.Log("Exile!");
+            arrow.position = exilePosition.position;
+        }
     }
 
     
