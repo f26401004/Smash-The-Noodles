@@ -34,6 +34,8 @@ public class Control : MonoBehaviour
                 Vector3 spawn = itemSpawns[Random.Range(0, itemSpawns.Length)].position;
                 Item item = items[Random.Range(0, items.Length)];
 
+                spawn += Random.insideUnitSphere * 0.6f;
+
                 Item newItem = Instantiate(item);
                 newItem.transform.position = spawn;
             }
