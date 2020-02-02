@@ -99,7 +99,7 @@ MonoBehaviour:
   isHeld: 0
   velocity: {x: 0, y: 0}
   acceleration: 10
-  repairPower: 15
+  repairPower: 25
   key: 
   type: 3
 --- !u!58 &8038477151168957308

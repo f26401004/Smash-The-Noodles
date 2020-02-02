@@ -11,17 +11,17 @@ public class TitleScene : MonoBehaviour {
     // Start is called before the first frame update
     void Start () {
         startAnimator = startButton.GetComponent<Animator> ();
-        endAnimator = endButton.GetComponent<Animator> ();
+        exitAnimator = exitButton.GetComponent<Animator> ();
         currentIndex = 0;
     }
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown (KeyCode.Up)) {
-            currentIndex = (currentIndex + 3) % 2
+        if (Input.GetKeyDown (KeyCode.UpArrow)) {
+            currentIndex = (currentIndex + 3) % 2;
         }
-        if (Input.GetKeyDown (KeyCode.Down)) {
-            currentIndex = (currentIndex + 1) % 2
+        if (Input.GetKeyDown (KeyCode.DownArrow)) {
+            currentIndex = (currentIndex + 1) % 2;
         }
     }
 }
