@@ -82,7 +82,12 @@ public class CharacterAction : MonoBehaviour {
 		{
             FindObjectOfType<Control>().LetDie(this as PlayerAction);
 		}
-        touch = item;
+		else
+		{
+
+            touch = item;
+        }
+
     }
 
     void OnTriggerExit2D (Collider2D other) {
