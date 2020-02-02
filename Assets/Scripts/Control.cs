@@ -65,11 +65,15 @@ public class Control : MonoBehaviour
         GameObject deadEffectInstance = Instantiate(deadEffect);
         deadEffectInstance.transform.position = player.transform.position;
         Destroy(deadEffectInstance, 1.5f);
-		if (player.GetComponent<PlayerAction>().hold)
+        
+
+        if (player.GetComponent<PlayerAction>().hold)
 		{
             player.GetComponent<PlayerAction>().Drop();
         }
         player.SetActive(false);
+        player.GetComponent<PlayerAction>().touch = null;
+        player.GetComponent<PlayerAction>().arrow.position = player.GetComponent<PlayerAction>().exilePosition.position;
         player.transform.position = spawnPosition.position;
         yield return new WaitForSeconds(3);
         player.transform.position = spawnPosition.position;

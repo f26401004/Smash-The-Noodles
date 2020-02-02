@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class EndScene : MonoBehaviour {
     private int currentIndex;
     // Start is called before the first frame update
