@@ -49,17 +49,17 @@ public class TitleScene : MonoBehaviour {
     }
 
     public void rightAboutTab () {
-        aboutTab1.active = false;
-        aboutTab2.active = true;
-        tabRightButton.active = false;
-        tabLeftButton.active = true;
+        aboutTab1.setActive (false);
+        aboutTab2.setActive (true);
+        tabRightButton.setActive (false);
+        tabLeftButton.setActive (true);
     }
 
     public void leftAboutTab () {
-        aboutTab1.active = true;
-        aboutTab2.active = false;
-        tabRightButton.active = true;
-        tabLeftButton.active = false;
+        aboutTab1.setActive (true);
+        aboutTab2.setActive (false);
+        tabRightButton.setActive (true);
+        tabLeftButton.setActive (false);
     }
 
     public void enterGame () {
