@@ -24,5 +24,6 @@ public class PlayerAction : CharacterAction {
         Drop();
         item.velocity += (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) * 1.5f + 3f) * Vector2.right * transform.localScale.x;
         item.velocity -= Vector2.up * 4;
-	}
+        animator.runtimeAnimatorController = normalController;
+    }
 }

@@ -5700,6 +5700,21 @@ PrefabInstance:
       propertyPath: m_LinearDrag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 743661097584530617, guid: 6189e604a891049a385e376f15aae07c,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c585570b2a1666f4e8cd47dd8ad2e4e4, type: 2}
+    - target: {fileID: 743661097584530617, guid: 6189e604a891049a385e376f15aae07c,
+        type: 3}
+      propertyPath: normalController
+      value: 
+      objectReference: {fileID: 9100000, guid: 23c96ace5bf410c4e80cfc714809ecb9, type: 2}
+    - target: {fileID: 743661097584530617, guid: 6189e604a891049a385e376f15aae07c,
+        type: 3}
+      propertyPath: holdingController
+      value: 
+      objectReference: {fileID: 9100000, guid: c585570b2a1666f4e8cd47dd8ad2e4e4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6189e604a891049a385e376f15aae07c, type: 3}
 --- !u!1 &1865695666
@@ -6279,5 +6294,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 743661097584530617, guid: 6189e604a891049a385e376f15aae07c,
+        type: 3}
+      propertyPath: normalController
+      value: 
+      objectReference: {fileID: 9100000, guid: 05ae94f207128cf48b51e338abfc36b1, type: 2}
+    - target: {fileID: 743661097584530617, guid: 6189e604a891049a385e376f15aae07c,
+        type: 3}
+      propertyPath: holdingController
+      value: 
+      objectReference: {fileID: 9100000, guid: d61fe7592a28c9a41b34fa128bd9f41f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6189e604a891049a385e376f15aae07c, type: 3}
