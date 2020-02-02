@@ -15,24 +15,14 @@ public class PlayerAction : CharacterAction {
 
     }
 
-    public void Drop () {
-        if (hold == null) {
-            return;
-        }
-        StartCoroutine(TemporaryIgnore(hold));
-        hold.gameObject.transform.parent = null;
-        hold.GetComponent<Collider2D> ().enabled = true;
-        hold.isHeld = false;
-        hold = null;
-        touch = null;
-    }
+    
 
 	public void Throw()
 	{
         Item item = hold;
         StartCoroutine(TemporaryIgnore(item));
         Drop();
-        item.velocity += (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) * 1.5f + 0.5f) * Vector2.right * transform.localScale.x;
+        item.velocity += (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) * 1.5f + 2f) * Vector2.right * transform.localScale.x;
         item.velocity -= Vector2.up * 5;
 	}
 }
