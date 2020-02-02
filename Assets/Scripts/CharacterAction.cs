@@ -26,6 +26,12 @@ public class CharacterAction : MonoBehaviour {
         hold.gameObject.transform.parent = null;
         hold.GetComponent<Collider2D>().enabled = true;
         hold.isHeld = false;
+
+        if (hold.type == Item.ItemType.Weapon)
+        {
+            hold.GetComponentInChildren<TrailRenderer>().enabled = true;
+        }
+
         hold = null;
         touch = null;
     }
@@ -41,6 +47,11 @@ public class CharacterAction : MonoBehaviour {
 
         item.GetComponent<Collider2D> ().enabled = false;
         item.isHeld = true;
+
+		if (item.type == Item.ItemType.Weapon)
+		{
+            item.GetComponentInChildren<TrailRenderer>().enabled = false;
+		}
     }
 
 	protected IEnumerator TemporaryIgnore(Item item)
