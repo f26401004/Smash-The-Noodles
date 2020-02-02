@@ -1,0 +1,1087 @@
+fileFormatVersion: 2
+guid: 55b7d9716b148c542a9e5d877cf973e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6798869177674252491
+    second: fogos de artificio roxo_0
+  - first:
+      213: 8496705542199590899
+    second: fogos de artificio roxo_1
+  - first:
+      213: -8555640270529316347
+    second: fogos de artificio roxo_2
+  - first:
+      213: -5610706419592586130
+    second: fogos de artificio roxo_3
+  - first:
+      213: -1378567614498203623
+    second: fogos de artificio roxo_4
+  - first:
+      213: -8645701725033820609
+    second: fogos de artificio roxo_5
+  - first:
+      213: -5185427638639000528
+    second: fogos de artificio roxo_6
+  - first:
+      213: -2486684057117019936
+    second: fogos de artificio roxo_7
+  - first:
+      213: 8235497023258175147
+    second: fogos de artificio roxo_8
+  - first:
+      213: 6440253644120285125
+    second: fogos de artificio roxo_9
+  - first:
+      213: 5297042612578633484
+    second: fogos de artificio roxo_10
+  - first:
+      213: -6735900640197732167
+    second: fogos de artificio roxo_11
+  - first:
+      213: -1312611374029511652
+    second: fogos de artificio roxo_12
+  - first:
+      213: -8291651175054049603
+    second: fogos de artificio roxo_13
+  - first:
+      213: -2423294607547767543
+    second: fogos de artificio roxo_14
+  - first:
+      213: 7656526227407060297
+    second: fogos de artificio roxo_15
+  - first:
+      213: -972128242391065884
+    second: fogos de artificio roxo_16
+  - first:
+      213: -1331789984448149597
+    second: fogos de artificio roxo_17
+  - first:
+      213: -7419019403014804230
+    second: fogos de artificio roxo_18
+  - first:
+      213: 2970783675616513693
+    second: fogos de artificio roxo_19
+  - first:
+      213: -4990098837945713521
+    second: fogos de artificio roxo_20
+  - first:
+      213: 1869692276463222506
+    second: fogos de artificio roxo_21
+  - first:
+      213: -9150228436327648865
+    second: fogos de artificio roxo_22
+  - first:
+      213: -5249879393507367158
+    second: fogos de artificio roxo_23
+  - first:
+      213: -622774647495184482
+    second: fogos de artificio roxo_24
+  - first:
+      213: -1184079975991508328
+    second: fogos de artificio roxo_25
+  - first:
+      213: -1873847534589346440
+    second: fogos de artificio roxo_26
+  - first:
+      213: 6577482887184180656
+    second: fogos de artificio roxo_27
+  - first:
+      213: 277775787604372400
+    second: fogos de artificio roxo_28
+  - first:
+      213: 4372272274125832358
+    second: fogos de artificio roxo_29
+  - first:
+      213: -7647895315052782301
+    second: fogos de artificio roxo_30
+  - first:
+      213: 2065945370691689094
+    second: fogos de artificio roxo_31
+  - first:
+      213: -5826702612024246002
+    second: fogos de artificio roxo_32
+  - first:
+      213: -3742817783047515933
+    second: fogos de artificio roxo_33
+  - first:
+      213: 1302651692126777373
+    second: fogos de artificio roxo_34
+  - first:
+      213: 3245577967446398039
+    second: fogos de artificio roxo_35
+  - first:
+      213: 5853017776762656315
+    second: fogos de artificio roxo_36
+  - first:
+      213: -2722516116510306231
+    second: fogos de artificio roxo_37
+  - first:
+      213: 4993880572501345624
+    second: fogos de artificio roxo_38
+  - first:
+      213: 3838118768176118429
+    second: fogos de artificio roxo_39
+  - first:
+      213: 4163548387171542550
+    second: fogos de artificio roxo_40
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fogos de artificio roxo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1164
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fbf5e318095a1a0800000000000000
+      internalID: -6798869177674252491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1164
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff36e35cac5ae570800000000000000
+      internalID: 8496705542199590899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1164
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ab211f082444980800000000000000
+      internalID: -8555640270529316347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1164
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6c1e29fc34c222b0800000000000000
+      internalID: -5610706419592586130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1164
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9181afefe085edce0800000000000000
+      internalID: -1378567614498203623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1164
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e8065861c440880800000000000000
+      internalID: -8645701725033820609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 970
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0340e664909a908b0800000000000000
+      internalID: -5185427638639000528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_7
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 970
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0b9ea66068d7dd0800000000000000
+      internalID: -2486684057117019936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 970
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba6271cb8ec5a4270800000000000000
+      internalID: 8235497023258175147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 970
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf54314190606950800000000000000
+      internalID: 6440253644120285125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 970
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c074bd2f030e28940800000000000000
+      internalID: 5297042612578633484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_11
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 970
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b810ba5e064582a0800000000000000
+      internalID: -6735900640197732167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 776
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1465dae8eaa8cde0800000000000000
+      internalID: -1312611374029511652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_13
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 776
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbef375ff232eec80800000000000000
+      internalID: -8291651175054049603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_14
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 776
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905eef2c46abe5ed0800000000000000
+      internalID: -2423294607547767543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_15
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 776
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d3f0ea902714a60800000000000000
+      internalID: 7656526227407060297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_16
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 776
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ead72c938e4282f0800000000000000
+      internalID: -972128242391065884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_17
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 776
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a78b85b018848de0800000000000000
+      internalID: -1331789984448149597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 582
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc629d19295a0990800000000000000
+      internalID: -7419019403014804230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_19
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 582
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ec6a953085a3920800000000000000
+      internalID: 2970783675616513693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_20
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 582
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cf72aab8b9fbab0800000000000000
+      internalID: -4990098837945713521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_21
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 582
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeeb1e9283b72f910800000000000000
+      internalID: 1869692276463222506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_22
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 582
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91330797bbd30180800000000000000
+      internalID: -9150228436327648865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_23
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 582
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07a954b18ea427b0800000000000000
+      internalID: -5249879393507367158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 388
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f2ee8f1c57b57f0800000000000000
+      internalID: -622774647495184482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_25
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 388
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8928f5d098d419fe0800000000000000
+      internalID: -1184079975991508328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_26
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 388
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d7f896891cef5e0800000000000000
+      internalID: -1873847534589346440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_27
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 388
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5e2de36d9e74b50800000000000000
+      internalID: 6577482887184180656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_28
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 388
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbec5b6b9bdad300800000000000000
+      internalID: 277775787604372400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_29
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 388
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a04f80d77e6dac30800000000000000
+      internalID: 4372272274125832358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d97e23bb73dd590800000000000000
+      internalID: -7647895315052782301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_31
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 194
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ad0796e56bbac10800000000000000
+      internalID: 2065945370691689094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_32
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 194
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01447678d4632fa0800000000000000
+      internalID: -5826702612024246002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_33
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 194
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0107e7e07de0cc0800000000000000
+      internalID: -3742817783047515933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_34
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 194
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10374fefc2f31210800000000000000
+      internalID: 1302651692126777373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_35
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 194
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7541a7037fb9a0d20800000000000000
+      internalID: 3245577967446398039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b361cf748a81a3150800000000000000
+      internalID: 5853017776762656315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_37
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940902c340ea73ad0800000000000000
+      internalID: -2722516116510306231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_38
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855caa60ce3dd4540800000000000000
+      internalID: 4993880572501345624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_39
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ab5e63facb34530800000000000000
+      internalID: 3838118768176118429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogos de artificio roxo_40
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616a28ed235e7c930800000000000000
+      internalID: 4163548387171542550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
