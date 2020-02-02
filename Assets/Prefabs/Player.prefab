@@ -178,6 +178,9 @@ MonoBehaviour:
   hold: {fileID: 0}
   touch: {fileID: 0}
   tempIgnore: []
+  animator: {fileID: 743661097558143509}
+  normalController: {fileID: 0}
+  holdingController: {fileID: 0}
 --- !u!70 &743661097584530610
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

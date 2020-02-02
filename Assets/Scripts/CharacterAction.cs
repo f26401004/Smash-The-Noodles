@@ -11,9 +11,12 @@ public class CharacterAction : MonoBehaviour {
     public const float LethalSpeed = 3.5f;
     public const float TemporaryIgnoreTime = 1;
     public List<Item> tempIgnore = new List<Item>();
+    public Animator animator;
+    public RuntimeAnimatorController normalController, holdingController;
 
     public void Start () {
         socket = FindObjectOfType<Socket> ();
+        animator.runtimeAnimatorController = normalController;
     }
 
     public void Drop()
@@ -34,6 +37,8 @@ public class CharacterAction : MonoBehaviour {
 
         hold = null;
         touch = null;
+
+        animator.runtimeAnimatorController = normalController;
     }
 
     public void Pick (Item item) {
@@ -52,6 +57,8 @@ public class CharacterAction : MonoBehaviour {
 		{
             item.GetComponentInChildren<TrailRenderer>().enabled = false;
 		}
+
+        animator.runtimeAnimatorController = holdingController;
     }
 
 	protected IEnumerator TemporaryIgnore(Item item)
