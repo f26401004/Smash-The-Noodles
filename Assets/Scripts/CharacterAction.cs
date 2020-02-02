@@ -16,10 +16,24 @@ public class CharacterAction : MonoBehaviour {
         socket = FindObjectOfType<Socket> ();
     }
 
+    public void Drop()
+    {
+        if (hold == null)
+        {
+            return;
+        }
+        StartCoroutine(TemporaryIgnore(hold));
+        hold.gameObject.transform.parent = null;
+        hold.GetComponent<Collider2D>().enabled = true;
+        hold.isHeld = false;
+        hold = null;
+        touch = null;
+    }
+
     public void Pick (Item item) {
         if (hold) {
             // Drop
-            hold.gameObject.transform.parent = null;
+            Drop();
         }
         item.gameObject.transform.parent = hand;
         item.gameObject.transform.localPosition = Vector3.zero;
