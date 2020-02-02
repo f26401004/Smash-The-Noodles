@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ public class TitleScene : MonoBehaviour {
     public GameObject about;
     public GameObject start;
     public GameObject exitAbout;
+    public VideoPlayer video;
     private int currentIndex;
     // Start is called before the first frame update
     void Start () {
@@ -33,10 +35,12 @@ public class TitleScene : MonoBehaviour {
     public void openAboutCanvas () {
         about.active = true;
         EventSystem.current.SetSelectedGameObject (exitAbout);
+        video.Play();
     }
     public void closeAboutCanvas () {
         about.active = false;
         EventSystem.current.SetSelectedGameObject (start);
+        video.Stop();
     }
 
     public void enterGame () {
