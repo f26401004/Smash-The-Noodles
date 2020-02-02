@@ -11,6 +11,8 @@ public class Control : MonoBehaviour
     public Item[] items;
     public GameObject deadEffect;
 
+    public GameObject seAttacked;
+
 	private void Start()
 	{
         p1a = p1.GetComponent<PlayerAction>();
@@ -59,6 +61,7 @@ public class Control : MonoBehaviour
 
 	private IEnumerator DieAndRespawn(GameObject player)
 	{
+        Instantiate(seAttacked);
         GameObject deadEffectInstance = Instantiate(deadEffect);
         deadEffectInstance.transform.position = player.transform.position;
         Destroy(deadEffectInstance, 1.5f);

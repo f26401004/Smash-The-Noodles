@@ -10,6 +10,9 @@ public class Repair : MonoBehaviour
 	public Image HP_bar;
 	public GameObject repairEffect;
 
+	public GameObject seRepaired;
+	public GameObject seFixApplied;
+
 	public int hp = 0;
 
 	public void Update()
@@ -47,6 +50,11 @@ public class Repair : MonoBehaviour
 		if (hp == 100)
 		{
 			repair.sprite = repaired;
+			Instantiate(seRepaired);
+		}
+		else
+		{
+			Instantiate(seFixApplied);
 		}
 	}
 }
