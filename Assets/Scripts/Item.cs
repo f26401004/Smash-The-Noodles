@@ -11,6 +11,10 @@ public class Item : MonoBehaviour
 
 	public const int Gap = 5;
 	private int gapCounter = 0;
+	private SpriteRenderer sprite;
+	public Gradient gradient;
+	public float duration;
+	private float animationCounter = 0;
 
     public string key;
 	public enum ItemType
@@ -20,13 +24,20 @@ public class Item : MonoBehaviour
 
 	public ItemType type;
 
-	public void Use()
+	public void Start()
 	{
-
+		sprite = GetComponent<SpriteRenderer>();
+		sprite.color = new Color(1, 1, 1, 0);
 	}
 
 	public void Update()
 	{
+		if (animationCounter < duration)
+		{
+			sprite.color = gradient.Evaluate(animationCounter / duration);
+			animationCounter += Time.deltaTime;
+		}
+
 		if (!isHeld)
 		{
 			if (gapCounter >= Gap)

@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class PlayerAction : CharacterAction {
 
-    public void Use () {
-        if (this.hold == null) {
-            return;
-        }
-        this.hold.Use ();
-    }
 
     public void Update () {
 
