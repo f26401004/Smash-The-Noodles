@@ -21,11 +21,6 @@ public class EndScene : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-
-    }
-
     public void enterGame () {
         SceneManager.LoadScene ("level0");
     }
