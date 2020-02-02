@@ -30,16 +30,27 @@ public class Control : MonoBehaviour
 	{
 		while (true)
 		{
-			if (FindObjectsOfType<Item>().Length <= 10)
-			{
-                Vector3 spawn = itemSpawns[Random.Range(0, itemSpawns.Length)].position;
-                Item item = items[Random.Range(0, items.Length)];
-
-                spawn += Random.insideUnitSphere * 0.6f;
-
-                Item newItem = Instantiate(item);
-                newItem.transform.position = spawn;
+			if (FindObjectsOfType<Item>().Length > 10)
+            {
+                while (true)
+                {
+                    Item[] allItems = FindObjectsOfType<Item>();
+                    Item tryDelete = allItems[Random.Range(0, allItems.Length)];
+                    if (!tryDelete.isHeld)
+                    {
+                        Destroy(tryDelete.gameObject);
+                        break;
+                    }
+                }
             }
+            Vector3 spawn = itemSpawns[Random.Range(0, itemSpawns.Length)].position;
+            Item item = items[Random.Range(0, items.Length)];
+
+            spawn += Random.insideUnitSphere * 0.6f;
+
+            Item newItem = Instantiate(item);
+            newItem.transform.position = spawn;
+            newItem.velocity = Vector2.down * 3;
             
 
             yield return new WaitForSeconds(Random.Range(0.5f, 5f));
