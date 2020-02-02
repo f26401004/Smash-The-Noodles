@@ -9,6 +9,7 @@ public class Control : MonoBehaviour
     public Transform spawnPosition;
     public Transform[] itemSpawns;
     public Item[] items;
+    public GameObject deadEffect;
 
 	private void Start()
 	{
@@ -47,6 +48,9 @@ public class Control : MonoBehaviour
 
 	private IEnumerator DieAndRespawn(GameObject player)
 	{
+        GameObject deadEffectInstance = Instantiate(deadEffect);
+        deadEffectInstance.transform.position = player.transform.position;
+        Destroy(deadEffectInstance, 1.5f);
 		if (player.GetComponent<PlayerAction>().hold)
 		{
             player.GetComponent<PlayerAction>().Drop();

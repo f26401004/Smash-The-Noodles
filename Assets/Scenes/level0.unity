@@ -1404,6 +1404,8 @@ MonoBehaviour:
   - {fileID: 8279964767727099213, guid: 72579a9ae3d9f4746a73eb50ec81f648, type: 3}
   - {fileID: 8279964767727099213, guid: 72579a9ae3d9f4746a73eb50ec81f648, type: 3}
   - {fileID: 8279964767727099213, guid: 72579a9ae3d9f4746a73eb50ec81f648, type: 3}
+  deadEffect: {fileID: 3772383834704082356, guid: de7ceee5c39e6fe428558fb0979668d1,
+    type: 3}
 --- !u!4 &830459211
 Transform:
   m_ObjectHideFlags: 0
