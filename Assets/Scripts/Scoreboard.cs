@@ -18,9 +18,8 @@ public class Scoreboard : MonoBehaviour
 			score += repair.hp;
 		}
 		score /= (100 * repairs.Length);
-		score = Mathf.Floor(score * 100);
 
-		scoreText.text = score.ToString() + "%";
-		scoreBar.localScale = new Vector3(score / (100 * repairs.Length) * scoreBarExtendTo, scoreBar.localScale.y, 1);
+		scoreText.text = Mathf.Floor(score * 100).ToString() + "%";
+		scoreBar.localScale = new Vector3(score * scoreBarExtendTo, scoreBar.localScale.y, 1);
 	}
 }
