@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterAction : MonoBehaviour {
 
     public Socket socket;
+    public Transform hand;
     public Item hold;
     public Item touch;
     public const float LethalSpeed = 3.5f;
@@ -20,7 +21,7 @@ public class CharacterAction : MonoBehaviour {
             // Drop
             hold.gameObject.transform.parent = null;
         }
-        item.gameObject.transform.parent = transform;
+        item.gameObject.transform.parent = hand;
         item.gameObject.transform.localPosition = Vector3.zero;
         hold = item;
 
